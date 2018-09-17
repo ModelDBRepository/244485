@@ -1,0 +1,152 @@
+<html>
+
+<head>
+<meta name=Title content="">
+<meta name=Keywords content="">
+<meta http-equiv=Content-Type content="text/html; charset=macintosh">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Courier New";
+	panose-1:2 7 3 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:Calibri;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:Calibri;}
+.MsoChpDefault
+	{font-family:Calibri;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=white lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>Sleep-wake regulatory network model for typical human sleep</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Based on the model introduced in (Gleit, Diniz Behn and
+Booth, J Biol Rhythms 28:339-355, 2013) with slight revisions as in (Booth,
+Xique and Diniz Behn, SIAM J Appl Dyn
+Sys,
+16(2):1089-1112, 2017). </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Revisions include:</p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
+Symbol'>*<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>3 sleep and wake state promoting neuronal populations included in
+model network</p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
+Symbol'>*<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>reduced equation form for neurotransmitter concentrations</p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
+Symbol'>*<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>parameters for time constants of homeostatic sleep drive updated
+based on data in Rusterholz et al, SLEEP 33:491-498, 2010.</p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
+Symbol'>*<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>parameters corrected in circadian oscillator model as in Serkh
+and Forger, PLoS Comput Biol 10:e1003523, 2014</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Matlab files:</p>
+
+<p class=MsoNormal>run_DinizBehnBooth_SWnetworkModel.m: this file calls the
+MATLAB ode solver to numerically simulate the model equations, generates
+figures of model variables and computes basic statistics of the simulated
+sleep-wake pattern, including swperiod = period of each sleep-wake cycle,
+sleepdurs = duration of each sleep episode, wakedurs = duration of each wake
+episode, REMcycle = time between onsets of successive REM sleep episodes,
+REMdurs = duration of each REM sleep episode, phases_sleeponsets = phase of
+sleep onset relative to the minimum of the circadian clock drive variable c.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>DinizBehnBooth_SWnetworkModel.m: this file contains the
+model equations.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To simulate the model, enter the following at the MATLAB
+command prompt</p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:11.0pt;
+font-family:Courier;color:black'>[t,x,swperiod,sleepdurs,wakedurs,REMcycle,REMdurs,phases_sleeponsets]
+= run_DinizBehnBooth_SWnetworkModel;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Courier;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='color:black'>The
+following two figures will be generated that show the neuronal population
+firing rates (Figure 1) and the homeostatic sleep drive (Figure 2) over 10
+simulated 24h days.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='color:black'><img
+width="550" id="Picture 1" src="./images/image001.png"></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-family:Courier'>&nbsp;</span></p>
+
+<p class=MsoNormal><img width="550" id="Picture 2"
+src="./images/image002.png"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The simulated behavioral state is interpreted as follows:</p>
+
+<p class=MsoNormal>Wake = Wake population firing rate &gt; 4 Hz</p>
+
+<p class=MsoNormal>Sleep = Wake population firing rate &lt; 4 Hz</p>
+
+<p class=MsoNormal>REM sleep = REM population firing rate &gt; 3 Hz</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
